@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎨 Mezclador RGB</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app-bg">
+  <main class="container py-5">
+    <div class="text-center mb-5 text-white">
+      <h1 class="fw-bold display-5">🎨 Mezclador RGB</h1>
+      <p class="lead">Elige un color y ajusta sus valores en <b>Rojo, Verde y Azul</b></p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Panel de controles -->
+      <div class="col-md-6 col-lg-5">
+        <div class="glass-card p-4">
+          <h2 class="h5 mb-4 fw-semibold">Controles</h2>
+
+          <!-- Input color -->
+          <div class="mb-4">
+            <label for="colorPicker" class="form-label">Selector de color</label>
+            <input type="color" id="colorPicker" class="form-control form-control-color w-100 rounded-pill shadow-sm" value="#000000">
+          </div>
+
+          <!-- Rojo -->
+          <div class="mb-3">
+            <label class="form-label">Rojo (R)</label>
+            <div class="d-flex align-items-center">
+              <input type="range" id="rangeR" min="0" max="255" value="0" class="form-range slider-red flex-grow-1">
+              <input type="number" id="numR" min="0" max="255" value="0" class="form-control ms-2 text-center rounded-pill shadow-sm" style="max-width:80px;">
+            </div>
+          </div>
+
+          <!-- Verde -->
+          <div class="mb-3">
+            <label class="form-label">Verde (G)</label>
+            <div class="d-flex align-items-center">
+              <input type="range" id="rangeG" min="0" max="255" value="0" class="form-range slider-green flex-grow-1">
+              <input type="number" id="numG" min="0" max="255" value="0" class="form-control ms-2 text-center rounded-pill shadow-sm" style="max-width:80px;">
+            </div>
+          </div>
+
+          <!-- Azul -->
+          <div class="mb-4">
+            <label class="form-label">Azul (B)</label>
+            <div class="d-flex align-items-center">
+              <input type="range" id="rangeB" min="0" max="255" value="0" class="form-range slider-blue flex-grow-1">
+              <input type="number" id="numB" min="0" max="255" value="0" class="form-control ms-2 text-center rounded-pill shadow-sm" style="max-width:80px;">
+            </div>
+          </div>
+
+          <!-- HEX -->
+          <label for="hexOutput" class="form-label">Código Hex</label>
+          <div class="input-group mb-4">
+            <span class="input-group-text rounded-start-pill bg-dark text-white border-0">#</span>
+            <input type="text" id="hexOutput" class="form-control border-0 bg-light rounded-end-pill text-center" readonly value="000000">
+            <button class="btn btn-outline-light rounded-pill ms-2" id="btnCopy">📋 Copiar</button>
+          </div>
+
+          <button class="btn btn-gradient w-100 rounded-pill py-2 fw-semibold" id="btnReset">🔄 Reiniciar</button>
+        </div>
+      </div>
+
+      <!-- Vista previa -->
+      <div class="col-md-6 col-lg-5">
+        <div class="glass-card p-4 text-center">
+          <h2 class="h5 mb-4 fw-semibold">Vista previa</h2>
+          <div id="preview" class="preview rounded-4 mx-auto"></div>
+          <div class="mt-3 small fw-semibold text-light" id="rgbText">rgb(0,0,0)</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
